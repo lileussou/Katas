@@ -2,7 +2,7 @@ KATAS - PROJECT
 
 Description
 
-Ce repository à pour but de regrouper tout les katas que j'ai abordé afin de les partager pour donner ma vision quand à la résolution des ces katas mais aussi de récolter les critiques qui pourrais m'aider à améliorer cette dernière.
+Ce repository a pour but de regrouper tout les katas que j'ai abordé afin de les partager pour donner ma vision quand à la résolution des ces katas mais aussi de récolter les critiques qui pourrais m'aider à améliorer cette dernière.
 
 Instructions
 
