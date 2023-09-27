@@ -6,7 +6,7 @@ Ce repository a pour but de regrouper tout les katas que j'ai abordé afin de le
 
 Instructions
 
-Vous pouvez pull la branche du katas qui vous interesse (le nom de la branche sera toujours celui du kata en question).
+Vous pouvez récuperer la branche du katas qui vous interesse (le nom de la branche sera toujours celui du kata en question).
 et utiliser les commandes npm test pour lancer les tests et npm start pour lancer l'application.
 Les katas auront toujours une partie UI une fois l'application lancée, où il est également possible de faire des tests.
 
