@@ -9,4 +9,13 @@ describe ('string calculator tests', () => {
         //Then
         expect(returnedAddition).toBe(0);
     });
+
+    it ('Given "1" string return 1', () => {
+        //Given
+        const oneString = "1";
+        //When
+        const returnedAddition = Add(oneString);
+        //Then
+        expect(returnedAddition).toBe(1);
+    });
 });
