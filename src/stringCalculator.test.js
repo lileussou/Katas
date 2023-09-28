@@ -27,4 +27,13 @@ describe ('string calculator tests', () => {
         //Then
         expect(returnedAddition).toBe(3);
     });
+
+    it ('Given "1,2,3,4" string return 10', () => {
+        //Given
+        const oneToFourString = "1,2,3,4";
+        //When
+        const returnedAddition = Add(oneToFourString);
+        //Then
+        expect(returnedAddition).toBe(10);
+    });
 });
