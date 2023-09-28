@@ -18,4 +18,13 @@ describe ('string calculator tests', () => {
         //Then
         expect(returnedAddition).toBe(1);
     });
+
+    it ('Given "1,2" string return 3', () => {
+        //Given
+        const oneAndTwoString = "1,2";
+        //When
+        const returnedAddition = Add(oneAndTwoString);
+        //Then
+        expect(returnedAddition).toBe(3);
+    });
 });
