@@ -36,4 +36,22 @@ describe ('string calculator tests', () => {
         //Then
         expect(returnedAddition).toBe(10);
     });
+
+    it ('Given "1,2\n3" string return 6', () => {
+        //Given
+        const oneToThreeString = "1,2\n3";
+        //When
+        const returnedAddition = Add(oneToThreeString);
+        //Then
+        expect(returnedAddition).toBe(6);
+    });
+
+    it ('Given "1,\n" string return NaN', () => {
+        //Given
+        const oneToFailString = "1,\n";
+        //When
+        const returnedAddition = Add(oneToFailString);
+        //Then
+        expect(returnedAddition).toBe(NaN);
+    });
 });
