@@ -1,16 +1,100 @@
 import convert from './romanNumerals';
 
 describe ( 'Roman numeral test', () => {
+    it ('given [1,5,10,50,100,500,1000] it should return ["I","V","X","L","C","D","M"]', () => {
+        //Given
+        const convertedNumeralsList = [];
+        const oneToHundredList = [1, 5, 10, 50, 100, 500, 1000];
+
+        //When
+        oneToHundredList.forEach(element => {
+            const currentNumerals = convert(element);
+            convertedNumeralsList.push(currentNumerals)
+        });
+
+        //Then
+        expect(convertedNumeralsList).toStrictEqual(["I","V","X","L","C","D","M"]);
+    });
+    
+
+    /*
     it ('given 1 it should return I', () => {
         //Given
         const one = 1;
 
         //When
-        const convertedNumeralOne = convert(one);
+        const convertedNumeralsOne = convert(one);
 
         //Then
         expect(convertedNumeralsOne).toBe("I");
     });
+
+    it ('given 5 it should return V', () => {
+        //Given
+        const five = 5;
+
+        //When
+        const convertedNumeralsFive = convert(five);
+
+        //Then
+        expect(convertedNumeralsFive).toBe("V");
+    });
+    
+    it ('given 10 it should return X', () => {
+        //Given
+        const dix = 10;
+
+        //When
+        const convertedNumeralsDix = convert(dix);
+
+        //Then
+        expect(convertedNumeralsDix).toBe("X");
+    }); 
+
+    it ('given 50 it should return L', () => {
+        //Given
+        const cinquante = 50;
+
+        //When
+        const convertedNumeralsCinquante = convert(cinquante);
+
+        //Then
+        expect(convertedNumeralsCinquante).toBe("L");
+    });
+
+    it ('given 100 it should return C', () => {
+        //Given
+        const hundred = 100;
+
+        //When
+        const convertedNumeralsHundred = convert(hundred);
+
+        //Then
+        expect(convertedNumeralsHundred).toBe("C");
+    });
+
+    it ('given 500 it should return D', () => {
+        //Given
+        const fiveHundred = 500;
+
+        //When
+        const convertedNumeralsFiveHundred = convert(fiveHundred);
+
+        //Then
+        expect(convertedNumeralsFiveHundred).toBe("D");
+    });
+    
+    it ('given 1000 it should return M', () => {
+        //Given
+        const oneThousand = 1000;
+
+        //When
+        const convertedNumeralsOneThousand = convert(oneThousand);
+
+        //Then
+        expect(convertedNumeralsOneThousand).toBe("M");
+    });
+    */
 
     it ('given 2 it should return II', () => {
         //Given
@@ -32,17 +116,6 @@ describe ( 'Roman numeral test', () => {
 
         //Then
         expect(convertedNumeralsFour).toBe("IV");
-    });
-
-    it ('given 5 it should return V', () => {
-        //Given
-        const five = 5;
-
-        //When
-        const convertedNumeralsFive = convert(five);
-
-        //Then
-        expect(convertedNumeralsFive).toBe("V");
     });
 
     it ('given 6 it should return VI', () => {
@@ -67,17 +140,6 @@ describe ( 'Roman numeral test', () => {
         expect(convertedNumeralsNeuf).toBe("IX");
     });
 
-    it ('given 10 it should return X', () => {
-        //Given
-        const dix = 10;
-
-        //When
-        const convertedNumeralsDix = convert(dix);
-
-        //Then
-        expect(convertedNumeralsDix).toBe("X");
-    }); 
-
     it ('given 40 it should return XL', () => {
         //Given
         const quarante = 40;
@@ -87,17 +149,6 @@ describe ( 'Roman numeral test', () => {
 
         //Then
         expect(convertedNumeralsQuarante).toBe("XL");
-    });
-
-    it ('given 50 it should return L', () => {
-        //Given
-        const cinquante = 50;
-
-        //When
-        const convertedNumeralsCinquante = convert(cinquante);
-
-        //Then
-        expect(convertedNumeralsCinquante).toBe("L");
     });
 
     it ('given 90 it should return XC', () => {
@@ -110,17 +161,6 @@ describe ( 'Roman numeral test', () => {
         //Then
         expect(convertedNumeralsNinety).toBe("XC");
     });
-    
-    it ('given 100 it should return C', () => {
-        //Given
-        const hundred = 100;
-
-        //When
-        const convertedNumeralsHundred = convert(hundred);
-
-        //Then
-        expect(convertedNumeralsHundred).toBe("C");
-    });
 
     it ('given 400 it should return CD', () => {
         //Given
@@ -132,17 +172,6 @@ describe ( 'Roman numeral test', () => {
         //Then
         expect(convertedNumeralsFourHundred).toBe("CD");
     });
-    
-    it ('given 500 it should return D', () => {
-        //Given
-        const fiveHundred = 500;
-
-        //When
-        const convertedNumeralsFiveHundred = convert(fiveHundred);
-
-        //Then
-        expect(convertedNumeralsFiveHundred).toBe("D");
-    });
 
     it ('given 900 it should return CM', () => {
         //Given
@@ -153,17 +182,6 @@ describe ( 'Roman numeral test', () => {
 
         //Then
         expect(convertedNumeralsNineHundred).toBe("CM");
-    });
-    
-    it ('given 1000 it should return M', () => {
-        //Given
-        const oneThousand = 1000;
-
-        //When
-        const convertedNumeralsOneThousand = convert(oneThousand);
-
-        //Then
-        expect(convertedNumeralsOneThousand).toBe("M");
     });
 
     it ('given 3861 it should return MMMDCCCLXI', () => {
