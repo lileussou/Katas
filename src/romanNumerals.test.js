@@ -31,80 +31,33 @@ describe ( 'Roman numeral test', () => {
         expect(convertedNumeralsList).toStrictEqual(["II","VI"]);
     });
 
-    it ('given 4 it should return IV', () => {
+    it ('given [4,9,40,90,400,900] it should return ["IV","IX","XL","XC","CD","CM"]', () => {
         //Given
-        const four = 4;
+        const convertedNumeralsList = [];
+        const fourToNineHundredList = [4,9,40,90,400,900];
 
         //When
-        const convertedNumeralsFour = convert(four);
+        fourToNineHundredList.forEach(element => {
+            const currentNumerals = convert(element);
+            convertedNumeralsList.push(currentNumerals)
+        });
 
         //Then
-        expect(convertedNumeralsFour).toBe("IV");
+        expect(convertedNumeralsList).toStrictEqual(["IV","IX","XL","XC","CD","CM"]);
     });
 
-    it ('given 9 it should return IX', () => {
+    it ('given [3861] it should return ["MMMDCCCLXI"]', () => {
         //Given
-        const neuf = 9;
+        const convertedNumeralsList = [];
+        const threeThousandEigthHundredSixtyOneList = [3861];
 
         //When
-        const convertedNumeralsNeuf = convert(neuf);
+        threeThousandEigthHundredSixtyOneList.forEach(element => {
+            const currentNumerals = convert(element);
+            convertedNumeralsList.push(currentNumerals)
+        });
 
         //Then
-        expect(convertedNumeralsNeuf).toBe("IX");
-    });
-
-    it ('given 40 it should return XL', () => {
-        //Given
-        const quarante = 40;
-
-        //When
-        const convertedNumeralsQuarante = convert(quarante);
-
-        //Then
-        expect(convertedNumeralsQuarante).toBe("XL");
-    });
-
-    it ('given 90 it should return XC', () => {
-        //Given
-        const ninety = 90;
-
-        //When
-        const convertedNumeralsNinety = convert(ninety);
-
-        //Then
-        expect(convertedNumeralsNinety).toBe("XC");
-    });
-
-    it ('given 400 it should return CD', () => {
-        //Given
-        const fourHundred = 400;
-
-        //When
-        const convertedNumeralsFourHundred = convert(fourHundred);
-
-        //Then
-        expect(convertedNumeralsFourHundred).toBe("CD");
-    });
-
-    it ('given 900 it should return CM', () => {
-        //Given
-        const nineHundred = 900;
-
-        //When
-        const convertedNumeralsNineHundred = convert(nineHundred);
-
-        //Then
-        expect(convertedNumeralsNineHundred).toBe("CM");
-    });
-
-    it ('given 3861 it should return MMMDCCCLXI', () => {
-        //Given
-        const threeThousandEightHundredSixtyOne = 3861;
-
-        //When
-        const convertedNumeralsThreeThousandEightHundredSixtyOne = convert(threeThousandEightHundredSixtyOne);
-
-        //Then
-        expect(convertedNumeralsThreeThousandEightHundredSixtyOne).toBe("MMMDCCCLXI");
+        expect(convertedNumeralsList).toStrictEqual(["MMMDCCCLXI"]);
     });
 });
