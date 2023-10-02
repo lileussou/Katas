@@ -54,4 +54,13 @@ describe ('string calculator tests', () => {
         //Then
         expect(returnedAddition).toBe(NaN);
     });
+
+    it ('Given "//,\n1,2" string return 3', () => {
+        //Given
+        const delimiterString = "//;\n1;2";
+        //When
+        const returnedAddition = Add(delimiterString);
+        //Then
+        expect(returnedAddition).toBe(3);
+    });
 });
