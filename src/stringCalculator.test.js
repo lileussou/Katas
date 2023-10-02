@@ -63,4 +63,19 @@ describe ('string calculator tests', () => {
         //Then
         expect(returnedAddition).toBe(3);
     });
+    
+    it ('Given "//,\n1,2,-4" string return “negatives not allowed -4”', () => {
+        //Given
+        let expectedError = new Error('negatives not allowed -4');
+        let returnedError;
+        const negativeNotAllowedString = "//,\n1,2,-4";
+        //When
+        try {
+            Add(negativeNotAllowedString)
+        } catch (error) {
+            returnedError = error;
+        }
+        //Then
+        expect(returnedError).toStrictEqual(expectedError);
+    });
 });
