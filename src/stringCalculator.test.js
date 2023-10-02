@@ -78,4 +78,29 @@ describe ('string calculator tests', () => {
         //Then
         expect(returnedError).toStrictEqual(expectedError);
     });
+
+        
+    it ('Given "//,\n1,-2,-4" string return “negatives not allowed -2, negatives not allowed -4”', () => {
+        //Given
+        let expectedError = new Error('negatives not allowed -2,-4');
+        let returnedError;
+        const negativeNotAllowedString = "//,\n1,-2,-4";
+        //When
+        try {
+            Add(negativeNotAllowedString)
+        } catch (error) {
+            returnedError = error;
+        }
+        //Then
+        expect(returnedError).toStrictEqual(expectedError);
+    });
+
+    it ('Given "//,\n2,1001" string return “2”', () => {
+        //Given
+        const numeberTwoAndBig = "//,\n2,1001";
+        //When
+        const returnedAddition = Add(numeberTwoAndBig);
+        //Then
+        expect(returnedAddition).toBe(2);
+    });
 });

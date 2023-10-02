@@ -5,6 +5,7 @@ export default function Add (numbers) {
 
     const isStringHaveADelimiter = numbers[0] === '/';
     let calculatedString = [];
+    let finalString = [];
     let errorString = [];
     if (isStringHaveADelimiter) {
         let splitedString = numbers.split(/[\n]/);
@@ -16,12 +17,19 @@ export default function Add (numbers) {
 
     for (const element of calculatedString) {
         if (element < 0) {
-            throw new Error("negatives not allowed " + element);
+            errorString.push(element);
+        }
+        if (element < 1000) {
+            finalString.push(element)
         }
     }
 
+    if (errorString && errorString.length > 0) {
+        throw new Error("negatives not allowed " + errorString);
+    }
+
     const initialValue = 0;
-    const sumOfElements = calculatedString.reduce((currentSum, currentValue) => currentSum + parseInt(currentValue), initialValue);
+    const sumOfElements = finalString.reduce((currentSum, currentValue) => currentSum + parseInt(currentValue), initialValue);
 
     return sumOfElements;
 }
