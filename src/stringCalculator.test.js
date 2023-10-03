@@ -112,4 +112,22 @@ describe ('string calculator tests', () => {
         //Then
         expect(returnedAddition).toBe(6);
     });
+
+    it ('Given "//[$$]\n1$$6$$3" string return 10', () => {
+        //Given
+        const numeberOneAndSix = "//[$$]\n1$$6$$3";
+        //When
+        const returnedAddition = Add(numeberOneAndSix);
+        //Then
+        expect(returnedAddition).toBe(10);
+    });
+
+    it ('Given "//[$][*]\n1$6*3" string return 10', () => {
+        //Given
+        const numeberOneAndSix = "//[$][*]\n1$6*3";
+        //When
+        const returnedAddition = Add(numeberOneAndSix);
+        //Then
+        expect(returnedAddition).toBe(10);
+    });
 });
