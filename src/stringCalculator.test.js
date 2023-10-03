@@ -95,12 +95,21 @@ describe ('string calculator tests', () => {
         expect(returnedError).toStrictEqual(expectedError);
     });
 
-    it ('Given "//,\n2,1001" string return “2”', () => {
+    it ('Given "//,\n2,1001" string return 2', () => {
         //Given
         const numeberTwoAndBig = "//,\n2,1001";
         //When
         const returnedAddition = Add(numeberTwoAndBig);
         //Then
         expect(returnedAddition).toBe(2);
+    });
+
+    it ('Given "//[***]\n1***2***3" string return 6', () => {
+        //Given
+        const numeberOneAndThree = "//[***]\n1***2***3";
+        //When
+        const returnedAddition = Add(numeberOneAndThree);
+        //Then
+        expect(returnedAddition).toBe(6);
     });
 });

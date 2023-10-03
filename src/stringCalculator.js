@@ -9,7 +9,11 @@ export default function Add (numbers) {
     let errorString = [];
     if (isStringHaveADelimiter) {
         let splitedString = numbers.split(/[\n]/);
-        let delimiterString = splitedString[0].substr(2);
+        let firstString = splitedString[0];
+        let delimiterStart = firstString[2] === '[' ? 3 : 2;
+        let delimiterEnd = firstString.indexOf(']') > 0 ? firstString.indexOf(']') : firstString.length;
+        let delimiterString = firstString.substring(delimiterStart, delimiterEnd);
+        console.log(delimiterString);
         calculatedString = splitedString[1].split(delimiterString);
     } else {
         calculatedString = numbers.split(/[\n,]/);
@@ -20,7 +24,7 @@ export default function Add (numbers) {
             errorString.push(element);
         }
         if (element < 1000) {
-            finalString.push(element)
+             finalString.push(element);
         }
     }
 
