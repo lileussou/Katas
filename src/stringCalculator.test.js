@@ -130,4 +130,13 @@ describe ('string calculator tests', () => {
         //Then
         expect(returnedAddition).toBe(10);
     });
+
+    it ('Given "//[$$][***][----]\n1$$6***3----10" string return 20', () => {
+        //Given
+        const numeberOneAndTen = "//[$$][***][----]\n1$$6***3----10";
+        //When
+        const returnedAddition = Add(numeberOneAndTen);
+        //Then
+        expect(returnedAddition).toBe(20);
+    });
 });
