@@ -13,5 +13,8 @@ export function changeRoverPosition(currentRoverPosition, command) {
     if (command === "<=") {
         return {x : 1, y : 1, facing: Directions.W}
     }
-    return {x : 1, y : 1, facing: Directions.E}
+    if (command === "=>") {
+        return {x : 1, y : 1, facing: Directions.E}
+    }
+    return {x : 1, y : 1, facing: Directions.S}
 };
