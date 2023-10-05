@@ -24,14 +24,14 @@ describe ('Test the current position of the rover', () => {
         expect(facingEast).toStrictEqual({x : 1, y : 1, facing: Directions.E});
     });
 
-    it ('Given command "<=" receive return "{x : 1, y : 1, facing: Directions.W}"', () => {
+    it ('Given command "<=" receive return "{x : 1, y : 1, facing: Directions.N}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const turnLeft = '<=';
         //When 
-        const facingWest = changeRoverPosition(currentRoverPosition, turnLeft);
+        const facingNorth = changeRoverPosition(currentRoverPosition, turnLeft);
         //Then
-        expect(facingWest).toStrictEqual({x : 1, y : 1, facing: Directions.W});
+        expect(facingNorth).toStrictEqual({x : 1, y : 1, facing: Directions.N});
     });
 
     it ('Given command "["<=", "<="]" receive return "{x : 1, y : 1, facing: Directions.S}"', () => {
