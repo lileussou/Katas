@@ -5,9 +5,13 @@ export const Directions = {
     S : 'South',
 }
 
-export function getRoverPosition(command) {
-    if (command === '=>') {
-        return {x : 1, y : 1, facing: Directions.E};
+export function getRoverPosition() {
+    return {x : 1, y : 1, facing: Directions.N}
+};
+
+export function changeRoverPosition(currentRoverPosition, command) {
+    if (command === "<=") {
+        return {x : 1, y : 1, facing: Directions.W}
     }
-    return {x : 1, y : 1, facing: Directions.N};
+    return {x : 1, y : 1, facing: Directions.E}
 };

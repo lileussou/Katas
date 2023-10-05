@@ -1,5 +1,6 @@
 import {
     getRoverPosition,
+    changeRoverPosition,
     Directions,
 } from './roverMars';
 
@@ -15,11 +16,22 @@ describe ('Test the current position of the rover', () => {
 
     it ('Given command "=>" receive return "{x : 1, y : 1, facing: Directions.E}"', () => {
         //Given
-        const turnLeft = '=>';
+        const currentRoverPosition = getRoverPosition();
+        const turnRight = '=>';
         //When 
-        const facingEast = getRoverPosition(turnLeft);
+        const facingEast = changeRoverPosition(currentRoverPosition, turnRight);
         //Then
         expect(facingEast).toStrictEqual({x : 1, y : 1, facing: Directions.E});
+    });
+
+    it ('Given command "<=" receive return "{x : 1, y : 1, facing: Directions.W}"', () => {
+        //Given
+        const currentRoverPosition = getRoverPosition();
+        const turnLeft = '<=';
+        //When 
+        const facingWest = changeRoverPosition(currentRoverPosition, turnLeft);
+        //Then
+        expect(facingWest).toStrictEqual({x : 1, y : 1, facing: Directions.W});
     });
 })
 
