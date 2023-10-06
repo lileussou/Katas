@@ -5,6 +5,13 @@ export const Directions = {
     W : 'W',
 }
 
+export const Commands = {
+    Left : '<=',
+    Right : '=>',
+    Forward : 'F',
+    BackWard : 'B',
+}
+
 // class Rover {
 //     constructor(x, y, facing) {
 //         this.x = 1;
@@ -27,17 +34,20 @@ export function getRoverPosition() {
 export function changeRoverPosition(currentRoverPosition, commands) {
     const keys = Object.keys(Directions);
     for (let command of commands) {
-        if (command === "<=") {
+        if (command === Commands.Left) {
             const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
             const newIndexPosition = currentPositionIndex === 0 ? keys.length -1 : currentPositionIndex -1;
             const newFacing = Directions[keys[newIndexPosition]];
             Rover.facing = newFacing;
         }
-        if (command === "=>") {
+        if (command === Commands.Right) {
             const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
             const newIndexPosition = currentPositionIndex === 3 ? 0 : currentPositionIndex +1;
             const newFacing = Directions[keys[newIndexPosition]];
             Rover.facing = newFacing;
+        }
+        if (command === Commands.Forward) {
+            Rover.x = Rover.x + 1;
         }
     }
     return Rover;
