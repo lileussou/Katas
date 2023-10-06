@@ -24,21 +24,21 @@ export function getRoverPosition() {
     return rover;
 };
 
-export function changeRoverPosition(currentRoverPosition, command) {
+export function changeRoverPosition(currentRoverPosition, commands) {
     const keys = Object.keys(Directions);
-    if (command === "<=") {
-        const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
-        const newIndexPosition = currentPositionIndex === 0 ? keys.length -1 : currentPositionIndex -1;
-        const newFacing = Directions[keys[newIndexPosition]];
-        Rover.facing = newFacing;
-        return Rover;
+    for (let command of commands) {
+        if (command === "<=") {
+            const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
+            const newIndexPosition = currentPositionIndex === 0 ? keys.length -1 : currentPositionIndex -1;
+            const newFacing = Directions[keys[newIndexPosition]];
+            Rover.facing = newFacing;
+        }
+        if (command === "=>") {
+            const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
+            const newIndexPosition = currentPositionIndex === 3 ? 0 : currentPositionIndex +1;
+            const newFacing = Directions[keys[newIndexPosition]];
+            Rover.facing = newFacing;
+        }
     }
-    if (command === "=>") {
-        const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
-        const newIndexPosition = currentPositionIndex === 3 ? 0 : currentPositionIndex +1;
-        const newFacing = Directions[keys[newIndexPosition]];
-        Rover.facing = newFacing;
-        return Rover;
-    }
-    return {x : 1, y : 1, facing: Directions.S}
+    return Rover;
 };
