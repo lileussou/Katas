@@ -12,19 +12,8 @@ export const Commands = {
     BackWard : 'B',
 }
 
-export const Latitude = {
-    One : 1,
-    Two : 2,
-    Three : 3,
-    Four : 4,
-}
-
-export const Longitude = {
-    One : 1,
-    Two : 2,
-    Three : 3,
-    Four : 4,
-}
+export const Latitude = [1, 2, 3, 4];
+export const Longitude = [1, 2, 3, 4];
 
 var Rover = {
     latitude: 1,
@@ -55,44 +44,51 @@ export function changeRoverPosition(currentRoverPosition, commands) {
         if (command === Commands.Forward) {
             switch (Rover.facing) {
                 case Directions.N : 
-                Rover.longitude = Rover.longitude + Longitude.One;
+                Rover.longitude = Rover.longitude + 1 ;
                 break;
                 case Directions.E : 
-                Rover.latitude = Rover.latitude + Latitude.One;
+                Rover.latitude = Rover.latitude + 1 ;
                 break;
                 case Directions.S : 
-                Rover.longitude = Rover.longitude - Longitude.One;
+                Rover.longitude = Rover.longitude - 1 ;
                 break;
                 case Directions.W : 
-                Rover.latitude = Rover.latitude - Latitude.One;
+                Rover.latitude = Rover.latitude - 1 ;
                 break;
             } 
         }
         if (command === Commands.BackWard) {
             switch (Rover.facing) {
                 case Directions.N : 
-                Rover.longitude = Rover.longitude - Longitude.One;
+                Rover.longitude = Rover.longitude - 1 ;
                 break;
                 case Directions.E : 
-                Rover.latitude = Rover.latitude - Latitude.One;
+                Rover.latitude = Rover.latitude - 1 ;
                 break;
                 case Directions.S : 
-                Rover.longitude = Rover.longitude + Longitude.One;
+                Rover.longitude = Rover.longitude + 1 ;
                 break;
                 case Directions.W : 
-                Rover.latitude = Rover.latitude + Latitude.One;
+                Rover.latitude = Rover.latitude + 1 ;
                 break;
             }
         }
-        if (Rover.longitude > Longitude.Four) {
-            Rover.longitude = Longitude.One;
-        }
-        if (Rover.latitude < Latitude.One) {
-            Rover.latitude = Latitude.Four;
-        }
-        if (Rover.longitude < Longitude.One) {
-            Rover.longitude = Longitude.Four;
-        }
+        checkIfRoverMoveOutOfEdge();
     }
     return Rover
 };
+
+export function checkIfRoverMoveOutOfEdge() {
+    if (Rover.longitude > Longitude.length) {
+        Rover.longitude = 1 ;
+    }
+    if (Rover.latitude < 1) {
+        Rover.latitude = 4;
+    }
+    if (Rover.longitude < 1) {
+        Rover.longitude = 4;
+    }
+    if (Rover.latitude > Longitude.length) {
+        Rover.latitude = 1 ;
+    }
+}
