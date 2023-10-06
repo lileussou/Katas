@@ -90,6 +90,9 @@ export function changeRoverPosition(currentRoverPosition, commands) {
         if (Rover.latitude < Latitude.One) {
             Rover.latitude = Latitude.Four;
         }
+        if (Rover.longitude < Longitude.One) {
+            Rover.longitude = Longitude.Four;
+        }
     }
     return Rover
 };
