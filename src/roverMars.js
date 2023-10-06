@@ -47,7 +47,7 @@ export function changeRoverPosition(currentRoverPosition, commands) {
             Rover.facing = newFacing;
         }
         if (command === Commands.Forward) {
-            Rover.x = Rover.x + 1;
+            Rover.y = Rover.y + 1;
         }
     }
     return Rover;
