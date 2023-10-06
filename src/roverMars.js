@@ -12,17 +12,23 @@ export const Commands = {
     BackWard : 'B',
 }
 
-// class Rover {
-//     constructor(x, y, facing) {
-//         this.x = 1;
-//         this.y = 1;
-//         this.facing = Directions.N;
-//     }
-// }
+export const Latitude = {
+    One : 1,
+    Two : 2,
+    Three : 3,
+    Four : 4,
+}
+
+export const Longitude = {
+    One : 1,
+    Two : 2,
+    Three : 3,
+    Four : 4,
+}
 
 var Rover = {
-    x: 1,
-    y: 1,
+    latitude: 1,
+    longitude: 1,
     facing : Directions.N
 };
 
@@ -49,33 +55,36 @@ export function changeRoverPosition(currentRoverPosition, commands) {
         if (command === Commands.Forward) {
             switch (Rover.facing) {
                 case Directions.N : 
-                Rover.y = Rover.y + 1;
+                Rover.longitude = Rover.longitude + Longitude.One;
                 break;
                 case Directions.E : 
-                Rover.x = Rover.x + 1;
+                Rover.latitude = Rover.latitude + Latitude.One;
                 break;
                 case Directions.S : 
-                Rover.y = Rover.y - 1;
+                Rover.longitude = Rover.longitude - Longitude.One;
                 break;
                 case Directions.W : 
-                Rover.x = Rover.x - 1;
+                Rover.latitude = Rover.latitude - Latitude.One;
                 break;
             } 
         }
         if (command === Commands.BackWard) {
             switch (Rover.facing) {
                 case Directions.N : 
-                Rover.y = Rover.y - 1;
+                Rover.longitude = Rover.longitude - Longitude.One;
                 break;
                 case Directions.E : 
-                Rover.x = Rover.x - 1;
+                Rover.latitude = Rover.latitude - Latitude.One;
                 break;
                 case Directions.S : 
-                Rover.y = Rover.y + 1;
+                Rover.longitude = Rover.longitude + Longitude.One;
                 break;
                 case Directions.W : 
-                Rover.x = Rover.x + 1;
+                Rover.latitude = Rover.latitude + Latitude.One;
                 break;
+            }
+            if (Rover.longitude > Longitude.Four) {
+                Rover.longitude = Longitude.One;
             }
         }
     }
