@@ -97,4 +97,14 @@ describe ('Test the current position of the rover', () => {
         //Then
         expect(facingSouthAtTwoOne).toStrictEqual({latitude : Latitude.Two, longitude : Longitude.One, facing: Directions.S});
     });
+
+    it ('Given command "["=>", "F", "F"]" receive return "{latitude : 4, longitude : 1, facing: W}"', () => {
+        //Given
+        const currentRoverPosition = getRoverPosition();
+        const moveToFourOneFacingWest= [Commands.Right, Commands.Forward, Commands.Forward];
+        //When 
+        const facingWestAtFourOne = changeRoverPosition(currentRoverPosition, moveToFourOneFacingWest);
+        //Then
+        expect(facingWestAtFourOne).toStrictEqual({latitude : Latitude.Four, longitude : Longitude.One, facing: Directions.W});
+    });  
 })
