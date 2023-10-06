@@ -47,8 +47,37 @@ export function changeRoverPosition(currentRoverPosition, commands) {
             Rover.facing = newFacing;
         }
         if (command === Commands.Forward) {
-            Rover.y = Rover.y + 1;
+            switch (Rover.facing) {
+                case Directions.N : 
+                Rover.y = Rover.y + 1;
+                break;
+                case Directions.E : 
+                Rover.x = Rover.x + 1;
+                break;
+                case Directions.S : 
+                Rover.y = Rover.y - 1;
+                break;
+                case Directions.W : 
+                Rover.x = Rover.x - 1;
+                break;
+            } 
+        }
+        if (command === Commands.BackWard) {
+            switch (Rover.facing) {
+                case Directions.N : 
+                Rover.y = Rover.y - 1;
+                break;
+                case Directions.E : 
+                Rover.x = Rover.x - 1;
+                break;
+                case Directions.S : 
+                Rover.y = Rover.y + 1;
+                break;
+                case Directions.W : 
+                Rover.x = Rover.x + 1;
+                break;
+            }
         }
     }
-    return Rover;
+    return Rover
 };

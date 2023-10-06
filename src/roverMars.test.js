@@ -64,6 +64,27 @@ describe ('Test the current position of the rover', () => {
         //Then
         expect(facingNorthForward).toStrictEqual({x : 1, y : 2, facing: Directions.N});
     });
+
+    it ('Given command "["B"]" receive return "{x : 1, y : 1, facing: Directions.N}"', () => {
+        //Given
+        const currentRoverPosition = getRoverPosition();
+        const moveBackward = [Commands.BackWard];
+        //When 
+        const facingNorthBackward = changeRoverPosition(currentRoverPosition, moveBackward);
+        //Then
+        expect(facingNorthBackward).toStrictEqual({x : 1, y : 1, facing: Directions.N});
+    }); 
+
+    
+    it ('Given command "["F", "F", "=>" , "F", "=>", "B"]" receive return "{x : 2, y : 4, facing: Directions.S}"', () => {
+        //Given
+        const currentRoverPosition = getRoverPosition();
+        const moveToTwoFourFacingSouth= [Commands.Forward, Commands.Forward,Commands.Right, Commands.Forward, Commands.Right, Commands.BackWard];
+        //When 
+        const facingSouthAtTwoFour = changeRoverPosition(currentRoverPosition, moveToTwoFourFacingSouth);
+        //Then
+        expect(facingSouthAtTwoFour).toStrictEqual({x : 2, y : 4, facing: Directions.S});
+    });
 })
 
-// [roverPosition, setRoverPosition] = useState([x : 1, y : 1]);
+// [roverPosition, setRoverPosition] = useState([x : 1, y : 1]);,
