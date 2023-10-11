@@ -1,29 +1,12 @@
-export const Directions = {
-    N : 'N',
-    E : 'E',
-    S : 'S',
-    W : 'W',
-}
+import Rover from './objects/rover';
+import {Directions} from './models/Directions';
+import {Commands} from './models/commands';
+import {Longitude, Latitude} from './models/map';
 
-export const Commands = {
-    Left : '<=',
-    Right : '=>',
-    Forward : 'F',
-    BackWard : 'B',
-}
-
-export const Latitude = [1, 2, 3, 4];
-export const Longitude = [1, 2, 3, 4];
-
-var Rover = {
-    latitude: 1,
-    longitude: 1,
-    facing : Directions.N
-};
+const roverPrototype = new Rover(1, 1, Directions.N);
 
 export function getRoverPosition() {
-    const rover = Rover;
-    return rover;
+    return roverPrototype;
 };
 
 export function changeRoverPosition(currentRoverPosition, commands) {
@@ -33,62 +16,62 @@ export function changeRoverPosition(currentRoverPosition, commands) {
             const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
             const newIndexPosition = currentPositionIndex === 0 ? keys.length -1 : currentPositionIndex -1;
             const newFacing = Directions[keys[newIndexPosition]];
-            Rover.facing = newFacing;
+            roverPrototype.facing = newFacing;
         }
         if (command === Commands.Right) {
             const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
             const newIndexPosition = currentPositionIndex === 3 ? 0 : currentPositionIndex +1;
             const newFacing = Directions[keys[newIndexPosition]];
-            Rover.facing = newFacing;
+            roverPrototype.facing = newFacing;
         }
         if (command === Commands.Forward) {
-            switch (Rover.facing) {
+            switch (roverPrototype.facing) {
                 case Directions.N : 
-                Rover.longitude = Rover.longitude + 1 ;
+                roverPrototype.longitude = roverPrototype.longitude + 1 ;
                 break;
                 case Directions.E : 
-                Rover.latitude = Rover.latitude + 1 ;
+                roverPrototype.latitude = roverPrototype.latitude + 1 ;
                 break;
                 case Directions.S : 
-                Rover.longitude = Rover.longitude - 1 ;
+                roverPrototype.longitude = roverPrototype.longitude - 1 ;
                 break;
                 case Directions.W : 
-                Rover.latitude = Rover.latitude - 1 ;
+                roverPrototype.latitude = roverPrototype.latitude - 1 ;
                 break;
             } 
         }
         if (command === Commands.BackWard) {
-            switch (Rover.facing) {
+            switch (roverPrototype.facing) {
                 case Directions.N : 
-                Rover.longitude = Rover.longitude - 1 ;
+                roverPrototype.longitude = roverPrototype.longitude - 1 ;
                 break;
                 case Directions.E : 
-                Rover.latitude = Rover.latitude - 1 ;
+                roverPrototype.latitude = roverPrototype.latitude - 1 ;
                 break;
                 case Directions.S : 
-                Rover.longitude = Rover.longitude + 1 ;
+                roverPrototype.longitude = roverPrototype.longitude + 1 ;
                 break;
                 case Directions.W : 
-                Rover.latitude = Rover.latitude + 1 ;
+                roverPrototype.latitude = roverPrototype.latitude + 1 ;
                 break;
             }
         }
         checkIfRoverMoveOutOfEdge();
     }
-    return Rover
+    return roverPrototype
 };
 
 export function checkIfRoverMoveOutOfEdge() {
-    if (Rover.longitude > Longitude.length) {
-        Rover.longitude = 1 ;
+    if (roverPrototype.longitude > Longitude.length) {
+        roverPrototype.longitude = 1 ;
     }
-    if (Rover.latitude < 1) {
-        Rover.latitude = 4;
+    if (roverPrototype.latitude < 1) {
+        roverPrototype.latitude = 4;
     }
-    if (Rover.longitude < 1) {
-        Rover.longitude = 4;
+    if (roverPrototype.longitude < 1) {
+        roverPrototype.longitude = 4;
     }
-    if (Rover.latitude > Longitude.length) {
-        Rover.latitude = 1 ;
+    if (roverPrototype.latitude > Latitude.length) {
+        roverPrototype.latitude = 1 ;
     }
 }
