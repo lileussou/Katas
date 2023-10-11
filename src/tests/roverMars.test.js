@@ -1,10 +1,10 @@
 import {
     getRoverPosition,
     changeRoverPosition,
-} from './roverMars';
-import Rover from './objects/rover';
-import {Directions} from './models/Directions';
-import {Commands} from './models/commands';
+} from '../controller/roverMars';
+import Rover from '../objects/rover';
+import {Directions} from '../models/directions';
+import {Commands} from '../models/commands';
 
 describe ('Test the current position of the rover', () => {
     it ('Given no command return "{latitude : 1, longitude : 1, facing: N}"', () => {

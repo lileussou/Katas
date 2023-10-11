@@ -1,7 +1,7 @@
-import Rover from './objects/rover';
-import {Directions} from './models/Directions';
-import {Commands} from './models/commands';
-import {Longitude, Latitude} from './models/map';
+import Rover from '../objects/rover';
+import {Directions} from '../models/directions';
+import {Commands} from '../models/commands';
+import {Longitude, Latitude} from '../models/map';
 
 const roverPrototype = new Rover(1, 1, Directions.N);
 
