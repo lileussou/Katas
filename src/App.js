@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Rover from './objects/rover';
 import {Directions} from './models/directions';
+import roverMarsImg from './image/roverMarsImg.png';
 import './App.css';
 
 function App() {
@@ -11,7 +12,12 @@ function App() {
   return (
     <>
       <div>
-        <h1>{JSON.stringify(roverMars)}</h1>
+      <div>
+        <img alt='roverMarsImg' src={roverMarsImg} />
+      </div>
+      <div role='rover'>
+        {JSON.stringify(roverMars)}
+      </div>
       </div>
     </>
   );
