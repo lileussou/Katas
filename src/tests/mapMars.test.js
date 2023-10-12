@@ -33,5 +33,22 @@ describe ('Test the current map size', () => {
         const returnedMap = getMap(x,y);
         //Then
         expect(returnedMap).toMatchObject(expectedMap);
+    });
+
+    
+    it('Given x = 0, y = 0 return "Error: map cannot be build"', () => {
+        //Given
+        const x = 0;
+        const y = 0;
+        const expectError = new Error ("Error: map cannot be build");
+        let retunedError;
+        //When
+        try {
+            const returnedMap = getMap(x,y);
+        } catch (error) {
+            retunedError = error;
+        }
+        //Then
+        expect(retunedError).toMatchObject(expectError);
     }); 
 });
