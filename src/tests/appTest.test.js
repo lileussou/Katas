@@ -49,4 +49,18 @@ describe('test roverMars comportment in DOM', () => {
         expect(screen.getByRole('marsMap')).toHaveTextContent('{"longitude":4,"latitude":4}');
         expect(myRoverImg.src).toContain(roverMarsImg)
     })
+
+    
+    test('implement the 4 x 4 map', async () => {
+        //ARRANGE
+        render(<App />)
+        //ACT
+        const myMapImgs = screen.getAllByAltText('mapMarsImg');
+        await screen.findByRole('rover')
+        await screen.findByRole('marsMap')
+        //ASSERT
+        expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":1,"facing":"N"}')
+        expect(screen.getByRole('marsMap')).toHaveTextContent('{"longitude":4,"latitude":4}');
+        expect(myMapImgs).toHaveLength(16);
+    })
 })

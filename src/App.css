@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.mapMarsImg {
+  width: 100px;
+}
+
+.parentDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.longitude {
+  display: flex;
+}

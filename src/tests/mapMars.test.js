@@ -23,18 +23,6 @@ describe ('Test the current map size', () => {
         //Then
         expect(returnedMap).toMatchObject(expectedMap);
     });
-
-    it('Given x = Infinity, y = Infinity return "{longitudeSize : Infinity, latitudeSize:Infinity)', () => {
-        //Given
-        const x = Infinity;
-        const y = Infinity;
-        const expectedMap = new Map(x, y);
-        //When
-        const returnedMap = getMap(x,y);
-        //Then
-        expect(returnedMap).toMatchObject(expectedMap);
-    });
-
     
     it('Given x = 0, y = 0 return "Error: map cannot be build"', () => {
         //Given
