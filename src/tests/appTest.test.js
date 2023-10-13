@@ -12,7 +12,7 @@ describe('test roverMars comportment in DOM', () => {
         //ACT
         await screen.findByRole('rover')
         //ASSERT
-        expect(screen.getByRole('rover')).toHaveTextContent('{"latitude":1,"longitude":1,"facing":"N"}')
+        expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":1,"facing":"N"}')
     })
 
     test('rover is at initial position with img', async () => {
@@ -22,7 +22,31 @@ describe('test roverMars comportment in DOM', () => {
         const myRoverImg = screen.getByAltText('roverMarsImg')
         await screen.findByRole('rover')
         //ASSERT
-        expect(screen.getByRole('rover')).toHaveTextContent('{"latitude":1,"longitude":1,"facing":"N"}')
+        expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":1,"facing":"N"}')
+        expect(myRoverImg.src).toContain(roverMarsImg)
+    })
+
+    test('rover is at initial position with img', async () => {
+        //ARRANGE
+        render(<App />)
+        //ACT
+        const myRoverImg = screen.getByAltText('roverMarsImg')
+        await screen.findByRole('rover')
+        //ASSERT
+        expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":1,"facing":"N"}')
+        expect(myRoverImg.src).toContain(roverMarsImg)
+    })
+
+    test('create a 4 x 4 map', async () => {
+        //ARRANGE
+        render(<App />)
+        //ACT
+        const myRoverImg = screen.getByAltText('roverMarsImg')
+        await screen.findByRole('rover')
+        await screen.findByRole('marsMap')
+        //ASSERT
+        expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":1,"facing":"N"}')
+        expect(screen.getByRole('marsMap')).toHaveTextContent('{"longitude":4,"latitude":4}');
         expect(myRoverImg.src).toContain(roverMarsImg)
     })
 })

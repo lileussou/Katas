@@ -7,7 +7,7 @@ import {Directions} from '../models/directions';
 import {Commands} from '../models/commands';
 
 describe ('Test the current position of the rover', () => {
-    it ('Given no command return "{latitude : 1, longitude : 1, facing: N}"', () => {
+    it ('Given no command return "{longitude : 1, latitude : 1, facing: N}"', () => {
         //Given
         const noCommand = [''];
         const expectedRover = new Rover(1,1,Directions.N);
@@ -17,7 +17,7 @@ describe ('Test the current position of the rover', () => {
         expect(defaultState).toMatchObject(expectedRover);
     });
 
-    it ('Given command "=>" receive return "{latitude : 1, longitude : 1, facing: E}"', () => {
+    it ('Given command "=>" receive return "{longitude : 1, latitude : 1, facing: E}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const turnRight = [Commands.Right];
@@ -28,7 +28,7 @@ describe ('Test the current position of the rover', () => {
         expect(facingEast).toStrictEqual(expectedRover);
     });
 
-    it ('Given command "<=" receive return "{latitude : 1, longitude : 1, facing: N}"', () => {
+    it ('Given command "<=" receive return "{longitude : 1, latitude : 1, facing: N}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const turnLeft = [Commands.Left];
@@ -39,7 +39,7 @@ describe ('Test the current position of the rover', () => {
         expect(facingNorth).toStrictEqual(expectedRover);
     });
 
-    it ('Given command "["<=", "<="]" receive return "{latitude : 1, longitude : 1, facing: S}"', () => {
+    it ('Given command "["<=", "<="]" receive return "{longitude : 1, latitude : 1, facing: S}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const turnLeftTwice = [Commands.Left, Commands.Left];
@@ -50,7 +50,7 @@ describe ('Test the current position of the rover', () => {
         expect(facingSouth).toStrictEqual(expectedRover);
     });
 
-    it ('Given command "["<=", "=>", "=>", "=>"]" receive return "{latitude : 1, longitude : 1, facing: N}"', () => {
+    it ('Given command "["<=", "=>", "=>", "=>"]" receive return "{longitude : 1, latitude : 1, facing: N}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const turnLeftOnceAndRightTwice = [Commands.Left, Commands.Right, Commands.Right, Commands.Right];
@@ -61,7 +61,7 @@ describe ('Test the current position of the rover', () => {
         expect(facingNorth).toStrictEqual(expectedRover);
     });
 
-    it ('Given command "["F"]" receive return "{latitude : 1, longitude : 2, facing: N}"', () => {
+    it ('Given command "["F"]" receive return "{longitude : 1, latitude : 2, facing: N}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const moveForward = [Commands.Forward];
@@ -72,7 +72,7 @@ describe ('Test the current position of the rover', () => {
         expect(facingNorthForward).toStrictEqual(expectedRover);
     });
 
-    it ('Given command "["B"]" receive return "{latitude : 1, longitude : 1, facing: N}"', () => {
+    it ('Given command "["B"]" receive return "{longitude : 1, latitude : 1, facing: N}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const moveBackward = [Commands.BackWard];
@@ -84,7 +84,7 @@ describe ('Test the current position of the rover', () => {
     }); 
 
     
-    it ('Given command "["F", "F", "=>" , "F", "=>", "B"]" receive return "{latitude : 2, longitude : 4, facing: S}"', () => {
+    it ('Given command "["F", "F", "=>" , "F", "=>", "B"]" receive return "{longitude : 2, latitude : 4, facing: S}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const moveToTwoFourFacingSouth= [Commands.Forward, Commands.Forward,Commands.Right, Commands.Forward, Commands.Right, Commands.BackWard];
@@ -95,7 +95,7 @@ describe ('Test the current position of the rover', () => {
         expect(facingSouthAtTwoFour).toStrictEqual(expectedRover);
     }); 
 
-    it ('Given command "["B"]" receive return "{latitude : 2, longitude : 1, facing: S}"', () => {
+    it ('Given command "["B"]" receive return "{longitude : 2, latitude : 1, facing: S}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const moveToTwoOneFacingSouth= [Commands.BackWard];
@@ -106,7 +106,7 @@ describe ('Test the current position of the rover', () => {
         expect(facingSouthAtTwoOne).toStrictEqual(expectedRover);
     });
 
-    it ('Given command "["=>", "F", "F"]" receive return "{latitude : 4, longitude : 1, facing: W}"', () => {
+    it ('Given command "["=>", "F", "F"]" receive return "{longitude : 4, latitude : 1, facing: W}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const moveToFourOneFacingWest= [Commands.Right, Commands.Forward, Commands.Forward];
@@ -117,7 +117,7 @@ describe ('Test the current position of the rover', () => {
         expect(facingWestAtFourOne).toStrictEqual(expectedRover);
     });
 
-    it ('Given command "["<=", "F"]" receive return "{latitude : 4, longitude : 4, facing: S}"', () => {
+    it ('Given command "["<=", "F"]" receive return "{longitude : 4, latitude : 4, facing: S}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const moveToFourFourFacingSouth= [Commands.Left, Commands.Forward];
@@ -128,7 +128,7 @@ describe ('Test the current position of the rover', () => {
         expect(facingSouthAtFourFour).toStrictEqual(expectedRover);
     });
 
-    it ('Given command "["<=", "F"]" receive return "{latitude : 1, longitude : 4, facing: E}"', () => {
+    it ('Given command "["<=", "F"]" receive return "{longitude : 1, latitude : 4, facing: E}"', () => {
         //Given
         const currentRoverPosition = getRoverPosition();
         const moveToOneFourFacingEast= [Commands.Left, Commands.Forward];

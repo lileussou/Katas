@@ -1,7 +1,7 @@
 class Rover {
-    constructor (latitude, longitude, facing) {
-        this.latitude = latitude;
+    constructor (longitude, latitude, facing) {
         this.longitude = longitude;
+        this.latitude = latitude;
         this.facing = facing;
     }
 }

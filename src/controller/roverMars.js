@@ -27,32 +27,32 @@ export function changeRoverPosition(currentRoverPosition, commands) {
         if (command === Commands.Forward) {
             switch (roverPrototype.facing) {
                 case Directions.N : 
-                roverPrototype.longitude = roverPrototype.longitude + 1 ;
-                break;
-                case Directions.E : 
                 roverPrototype.latitude = roverPrototype.latitude + 1 ;
                 break;
+                case Directions.E : 
+                roverPrototype.longitude = roverPrototype.longitude + 1 ;
+                break;
                 case Directions.S : 
-                roverPrototype.longitude = roverPrototype.longitude - 1 ;
+                roverPrototype.latitude = roverPrototype.latitude - 1 ;
                 break;
                 case Directions.W : 
-                roverPrototype.latitude = roverPrototype.latitude - 1 ;
+                roverPrototype.longitude = roverPrototype.longitude - 1 ;
                 break;
             } 
         }
         if (command === Commands.BackWard) {
             switch (roverPrototype.facing) {
                 case Directions.N : 
-                roverPrototype.longitude = roverPrototype.longitude - 1 ;
-                break;
-                case Directions.E : 
                 roverPrototype.latitude = roverPrototype.latitude - 1 ;
                 break;
+                case Directions.E : 
+                roverPrototype.longitude = roverPrototype.longitude - 1 ;
+                break;
                 case Directions.S : 
-                roverPrototype.longitude = roverPrototype.longitude + 1 ;
+                roverPrototype.latitude = roverPrototype.latitude + 1 ;
                 break;
                 case Directions.W : 
-                roverPrototype.latitude = roverPrototype.latitude + 1 ;
+                roverPrototype.longitude = roverPrototype.longitude + 1 ;
                 break;
             }
         }
