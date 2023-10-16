@@ -32,7 +32,7 @@ function App() {
           Position du Rover : {JSON.stringify(roverMars)}
         </div>
         <div role='marsMap'>
-          Taille de la map : {JSON.stringify(mapMars)}
+          Taille de la map : {JSON.stringify(mapMars.onlyCoordinates)}
         </div>
       </div>
     </>
