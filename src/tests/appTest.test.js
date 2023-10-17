@@ -79,4 +79,18 @@ describe('test roverMars comportment in DOM', () => {
         //ASSERT
         expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":1,"facing":"E"}')
     })
+
+    test('move the rover to move forward', async () => {
+        //ARRANGE
+        act(() => {
+            render(<App />)
+        })
+        //ACT
+        await screen.findByRole('rover')
+        act(() => {
+            userEvent.click(screen.getByAltText('upArrow'))
+        })
+        //ASSERT
+        expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":2,"latitude":1,"facing":"E"}')
+    })
 })
