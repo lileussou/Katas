@@ -39,13 +39,23 @@
 
 .mapMarsImg {
   width: 100px;
+  height: 100px;
+}
+
+.arrows {
+  width: 100px;
+  height: 100px;
 }
 
 .parentDiv {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
-.longitude {
+.latitude {
   display: flex;
+}
+
+.arrowDiv {
+  text-align: center;
 }

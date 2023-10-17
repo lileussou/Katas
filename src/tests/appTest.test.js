@@ -1,6 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
+import { act } from 'react-dom/test-utils';
 
 import roverMarsImg from '../image/roverMarsImg.png';
 import App from '../App';
@@ -51,7 +52,7 @@ describe('test roverMars comportment in DOM', () => {
     })
 
     
-    test('implement the 4 x 4 map', async () => {
+    test('implement the 4 x 4 map and the rover', async () => {
         //ARRANGE
         render(<App />)
         //ACT
@@ -61,6 +62,21 @@ describe('test roverMars comportment in DOM', () => {
         //ASSERT
         expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":1,"facing":"N"}')
         expect(screen.getByRole('marsMap')).toHaveTextContent('{"longitude":4,"latitude":4}');
-        expect(myMapImgs).toHaveLength(16);
+        expect(myMapImgs).toHaveLength(15);
+    })
+
+        
+    test('rotate the rover to East', async () => {
+        //ARRANGE
+        act(() => {
+            render(<App />)
+        })
+        //ACT
+        await screen.findByRole('rover')
+        act(() => {
+            userEvent.click(screen.getByAltText('rightArrow'))
+        })
+        //ASSERT
+        expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":1,"facing":"E"}')
     })
 })
