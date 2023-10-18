@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState } from 'react';
 
 import Rover from './objects/rover';
 import Map from './objects/map';
@@ -16,6 +16,9 @@ import './App.css';
 function App() {
 
   const mapMars = new Map(4,4);
+  const style = {
+    transform: 'rotate(90deg)',
+  }
   const [roverMars, setRoverMars] = useState(new Rover(1, 1, Directions.N));
   
   const moveRover = useCallback((command) => {
@@ -33,7 +36,7 @@ function App() {
                 <div key = {`${longitudeIndex}, ${latitudeIndex}`} className='longitude' id= {`${longitudeIndex}, ${latitudeIndex}`}>
                   {longitudeElement === roverMars.longitude
                     && latitudeElement === roverMars.latitude ?
-                      <img alt='roverMarsImg' src={roverMarsImg} className='mapMarsImg'/>
+                      <img alt='roverMarsImg' src={roverMarsImg} className='mapMarsImg' style={style} />
                       :
                       <img alt='mapMarsImg' src={mapMarsImg} className='mapMarsImg'/>
                   } 

@@ -75,3 +75,19 @@ export function checkIfRoverMoveOutOfEdge() {
         roverPrototype.latitude = 1 ;
     }
 }
+
+export function angleBasedOnDirection(currentFacing) {
+    let roverAngle = 0;
+    switch (currentFacing) {
+        case 'E' :
+            roverAngle = 90;
+            break;
+        case 'S' : 
+            roverAngle = 180;
+            break;
+        case 'W' : 
+            roverAngle = 270;
+            break;
+    } 
+    return roverAngle;
+}

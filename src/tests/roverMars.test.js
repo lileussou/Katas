@@ -1,6 +1,7 @@
 import {
     getRoverPosition,
     changeRoverPosition,
+    angleBasedOnDirection,
 } from '../controller/roverMars';
 import Rover from '../objects/rover';
 import {Directions} from '../models/directions';
@@ -137,5 +138,15 @@ describe ('Test the current position of the rover', () => {
         const facingEastAtOneFour = changeRoverPosition(currentRoverPosition, moveToOneFourFacingEast);
         //Then
         expect(facingEastAtOneFour).toStrictEqual(expectedRover);
+    });
+
+    it ('Given Facing Rover East receive return "90"', () => {
+        //Given
+        const currentRoverPosition = getRoverPosition();
+        const expectedAngle = 90;
+        //When 
+        const getCurrentRoverAngle = angleBasedOnDirection(currentRoverPosition.facing);
+        //Then
+        expect(getCurrentRoverAngle).toStrictEqual(expectedAngle);
     });
 })
