@@ -60,7 +60,7 @@ function App() {
   }, [obstacleList, currentObstacleLongitude, currentObstacleLatitude, mapMars]);
 
   const deleteObstacle = useCallback((index) => {
-    const newObstacleList = obstacleList.splice(index, 1);
+    const newObstacleList = obstacleList.toSpliced(index, 1);
     console.log(newObstacleList);
     setObstacleList(newObstacleList);
   }, [obstacleList]);

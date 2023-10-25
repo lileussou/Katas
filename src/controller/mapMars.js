@@ -13,8 +13,8 @@ export function createObstacle(longitude, latitude, map, rover) {
         || latitude > map.latitude || latitude < 1) {
         throw new Error ("Error: obtacle cannot be build because coordinates are outside the map");
     }
-    if (longitude === rover.longitude 
-        && latitude === rover.latitude) {
+    if (parseInt(longitude) === rover.longitude 
+        && parseInt(latitude) === rover.latitude) {
         throw new Error ("Error: obtacle cannot be build because coordinates are on the current rover position");
     }
     return new Obstacle(longitude, latitude);
