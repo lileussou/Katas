@@ -16,63 +16,63 @@ export function changeRoverPosition(currentRoverPosition, commands) {
             const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
             const newIndexPosition = currentPositionIndex === 0 ? keys.length -1 : currentPositionIndex -1;
             const newFacing = Directions[keys[newIndexPosition]];
-            roverPrototype.facing = newFacing;
+            currentRoverPosition.facing = newFacing;
         }
         if (command === Commands.Right) {
             const currentPositionIndex = keys.indexOf(currentRoverPosition.facing);
             const newIndexPosition = currentPositionIndex === 3 ? 0 : currentPositionIndex +1;
             const newFacing = Directions[keys[newIndexPosition]];
-            roverPrototype.facing = newFacing;
+            currentRoverPosition.facing = newFacing;
         }
         if (command === Commands.Forward) {
-            switch (roverPrototype.facing) {
+            switch (currentRoverPosition.facing) {
                 case Directions.N : 
-                roverPrototype.latitude = roverPrototype.latitude + 1 ;
+                currentRoverPosition.latitude = currentRoverPosition.latitude + 1 ;
                 break;
                 case Directions.E : 
-                roverPrototype.longitude = roverPrototype.longitude + 1 ;
+                currentRoverPosition.longitude = currentRoverPosition.longitude + 1 ;
                 break;
                 case Directions.S : 
-                roverPrototype.latitude = roverPrototype.latitude - 1 ;
+                currentRoverPosition.latitude = currentRoverPosition.latitude - 1 ;
                 break;
                 case Directions.W : 
-                roverPrototype.longitude = roverPrototype.longitude - 1 ;
+                currentRoverPosition.longitude = currentRoverPosition.longitude - 1 ;
                 break;
             } 
         }
         if (command === Commands.BackWard) {
-            switch (roverPrototype.facing) {
+            switch (currentRoverPosition.facing) {
                 case Directions.N : 
-                roverPrototype.latitude = roverPrototype.latitude - 1 ;
+                currentRoverPosition.latitude = currentRoverPosition.latitude - 1 ;
                 break;
                 case Directions.E : 
-                roverPrototype.longitude = roverPrototype.longitude - 1 ;
+                currentRoverPosition.longitude = currentRoverPosition.longitude - 1 ;
                 break;
                 case Directions.S : 
-                roverPrototype.latitude = roverPrototype.latitude + 1 ;
+                currentRoverPosition.latitude = currentRoverPosition.latitude + 1 ;
                 break;
                 case Directions.W : 
-                roverPrototype.longitude = roverPrototype.longitude + 1 ;
+                currentRoverPosition.longitude = currentRoverPosition.longitude + 1 ;
                 break;
             }
         }
-        checkIfRoverMoveOutOfEdge();
+        checkIfRoverMoveOutOfEdge(currentRoverPosition);
     }
-    return roverPrototype
+    return currentRoverPosition
 };
 
-export function checkIfRoverMoveOutOfEdge() {
-    if (roverPrototype.longitude > Longitude.length) {
-        roverPrototype.longitude = 1 ;
+export function checkIfRoverMoveOutOfEdge(currentRoverPosition) {
+    if (currentRoverPosition.longitude > Longitude.length) {
+        currentRoverPosition.longitude = 1 ;
     }
-    if (roverPrototype.latitude < 1) {
-        roverPrototype.latitude = 4;
+    if (currentRoverPosition.latitude < 1) {
+        currentRoverPosition.latitude = 4;
     }
-    if (roverPrototype.longitude < 1) {
-        roverPrototype.longitude = 4;
+    if (currentRoverPosition.longitude < 1) {
+        currentRoverPosition.longitude = 4;
     }
-    if (roverPrototype.latitude > Latitude.length) {
-        roverPrototype.latitude = 1 ;
+    if (currentRoverPosition.latitude > Latitude.length) {
+        currentRoverPosition.latitude = 1 ;
     }
 }
 

@@ -57,12 +57,13 @@ describe('test roverMars comportment in DOM', () => {
         render(<App />)
         //ACT
         const myMapImgs = screen.getAllByAltText('mapMarsImg');
+        const myRoverImgsLength = screen.getAllByAltText('roverMarsImg').length;
         await screen.findByRole('rover')
         await screen.findByRole('marsMap')
         //ASSERT
         expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":1,"facing":"N"}')
         expect(screen.getByRole('marsMap')).toHaveTextContent('{"longitude":4,"latitude":4}');
-        expect(myMapImgs).toHaveLength(15);
+        expect(myMapImgs).toHaveLength(16 - myRoverImgsLength);
     })
 
         
@@ -91,6 +92,6 @@ describe('test roverMars comportment in DOM', () => {
             userEvent.click(screen.getByAltText('upArrow'))
         })
         //ASSERT
-        expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":2,"latitude":1,"facing":"E"}')
+        expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":2,"facing":"N"}')
     })
 })

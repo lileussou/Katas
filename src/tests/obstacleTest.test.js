@@ -36,4 +36,21 @@ describe('the test to create and manage the differents obstacle', () => {
         expect(retunedError).toMatchObject(expectError);
     })
 
+    it('given coordinates return "Error: obtacle cannot be build because coordinates are on the current rover position"', () => {
+        //Given
+        const coordinatesLongitude = 2;
+        const coordinatesLatitude = 2;
+        const map = new Map(4,4);
+        const rover = new Rover(2,2, Directions.N);
+        const expectError = new Error ("Error: obtacle cannot be build because coordinates are on the current rover position");
+        let retunedError;
+        //when
+        try {
+            const returnedObstacle = createObstacle(coordinatesLongitude, coordinatesLatitude, map, rover);
+        } catch (error) {
+            retunedError = error;
+        }
+        //Then
+        expect(retunedError).toMatchObject(expectError);
+    })
 })
