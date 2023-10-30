@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test roverMars comportment in DOM First snapshot Test 1`] = `
+<div>
+  <div>
+    <div
+      className="parentDiv"
+    >
+      <div
+        className="latitude"
+      >
+        <div
+          className="longitude"
+          id="0, 0"
+        >
+          <img
+            alt="roverMarsImg"
+            className="mapMarsImg"
+            src="roverMarsImg.png"
+            style={
+              Object {
+                "transform": "rotate(0deg)",
+              }
+            }
+          />
+        </div>
+        <div
+          className="longitude"
+          id="1, 0"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="2, 0"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="3, 0"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+      </div>
+      <div
+        className="latitude"
+      >
+        <div
+          className="longitude"
+          id="0, 1"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="1, 1"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="2, 1"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="3, 1"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+      </div>
+      <div
+        className="latitude"
+      >
+        <div
+          className="longitude"
+          id="0, 2"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="1, 2"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="2, 2"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="3, 2"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+      </div>
+      <div
+        className="latitude"
+      >
+        <div
+          className="longitude"
+          id="0, 3"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="1, 3"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="2, 3"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+        <div
+          className="longitude"
+          id="3, 3"
+        >
+          <img
+            alt="mapMarsImg"
+            className="mapMarsImg"
+            src="mapMarsImg.png"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      role="rover"
+    >
+      Position du Rover : 
+      {"longitude":1,"latitude":1,"facing":"N"}
+    </div>
+    <div
+      role="marsMap"
+    >
+      Taille de la map : 
+      {"longitude":4,"latitude":4}
+    </div>
+  </div>
+  <div>
+    <label
+      htmlFor="obstacleCoordinates"
+    >
+      Longitude de l'obstacle:
+    </label>
+    <input
+      id="obstacleLongitude"
+      max="4"
+      min="1"
+      name="obstacleLongitude"
+      onChange={[Function]}
+      type="number"
+    />
+    <label
+      htmlFor="obstacleCoordinates"
+    >
+      Latitude de l'obstacle:
+    </label>
+    <input
+      id="obstacleLatitude"
+      max="4"
+      min="1"
+      name="obstacleLatitude"
+      onChange={[Function]}
+      type="number"
+    />
+    <input
+      id="createObstacle"
+      name="createObstacle"
+      onClick={[Function]}
+      type="button"
+      value="add"
+    />
+  </div>
+  <div>
+    <ul />
+  </div>
+  <div
+    className="arrowDiv"
+  >
+    <div>
+      <img
+        alt="upArrow"
+        className="arrows"
+        onClick={[Function]}
+        src="upArrow.png"
+      />
+    </div>
+    <div>
+      <img
+        alt="leftArrow"
+        className="arrows"
+        onClick={[Function]}
+        src="leftArrow.png"
+      />
+      <img
+        alt="downArrow"
+        className="arrows"
+        onClick={[Function]}
+        src="downArrow.png"
+      />
+      <img
+        alt="rightArrow"
+        className="arrows"
+        onClick={[Function]}
+        src="rightArrow.png"
+      />
+    </div>
+  </div>
+</div>
+`;

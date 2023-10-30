@@ -2,6 +2,7 @@ import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
+import renderer from 'react-test-renderer';
 
 import roverMarsImg from '../image/roverMarsImg.png';
 import App from '../App';
@@ -93,5 +94,15 @@ describe('test roverMars comportment in DOM', () => {
         })
         //ASSERT
         expect(screen.getByRole('rover')).toHaveTextContent('{"longitude":1,"latitude":2,"facing":"N"}')
+    })
+
+    test('First snapshot Test', () => {
+        const component = renderer.create(
+            <App />
+        );
+
+        let tree = component.toJSON();
+
+        expect(tree).toMatchSnapshot(); 
     })
 })
