@@ -35,7 +35,7 @@ export function changeRoverPosition(currentRoverPosition, commands) {
                 case Directions.S : 
                 currentRoverPosition.latitude = currentRoverPosition.latitude - 1 ;
                 break;
-                case Directions.W : 
+                default :
                 currentRoverPosition.longitude = currentRoverPosition.longitude - 1 ;
                 break;
             } 
@@ -51,7 +51,7 @@ export function changeRoverPosition(currentRoverPosition, commands) {
                 case Directions.S : 
                 currentRoverPosition.latitude = currentRoverPosition.latitude + 1 ;
                 break;
-                case Directions.W : 
+                default :
                 currentRoverPosition.longitude = currentRoverPosition.longitude + 1 ;
                 break;
             }
@@ -87,6 +87,9 @@ export function angleBasedOnDirection(currentFacing) {
             break;
         case 'W' : 
             roverAngle = 270;
+            break;
+        default :
+            roverAngle = 0;
             break;
     } 
     return roverAngle;

@@ -1,0 +1,11 @@
+export const CREATE_ROVER = 'CREATE_ROVER';
+
+export const CHANGE_ROVER_POSITION = 'CHANGE_ROVER_POSITION';
+
+export const ROVER_ANGLE = 'ROVER_ANGLE';
+
+export const CREATE_MAP = 'CREATE_MAP';
+
+export const ADD_OBSTACLE = 'ADD_OBSTACLE';
+
+export const DELETE_OBSTACLE = 'DELETE_OBSTACLE';

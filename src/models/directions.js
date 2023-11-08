@@ -1,6 +1,6 @@
 export const Directions = {
-    N : 'N',
-    E : 'E',
-    S : 'S',
-    W : 'W',
+    NORTH : 'NORTH',
+    EAST : 'EAST',
+    SOUTH : 'SOUTH',
+    WEST : 'WEST',
 }

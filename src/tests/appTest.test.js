@@ -5,12 +5,12 @@ import { act } from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
 
 import roverMarsImg from '../image/roverMarsImg.png';
-import App from '../App';
+import Component from './component/Component';
 
 describe('test roverMars comportment in DOM', () => {
     test('rover is at initial position', async () => {
         //ARRANGE
-        render(<App />)
+        render(<Component />)
         //ACT
         await screen.findByRole('rover')
         //ASSERT
@@ -19,7 +19,7 @@ describe('test roverMars comportment in DOM', () => {
 
     test('rover is at initial position with img', async () => {
         //ARRANGE
-        render(<App />)
+        render(<Component />)
         //ACT
         const myRoverImg = screen.getByAltText('roverMarsImg')
         await screen.findByRole('rover')
@@ -30,7 +30,7 @@ describe('test roverMars comportment in DOM', () => {
 
     test('rover is at initial position with img', async () => {
         //ARRANGE
-        render(<App />)
+        render(<Component />)
         //ACT
         const myRoverImg = screen.getByAltText('roverMarsImg')
         await screen.findByRole('rover')
@@ -41,7 +41,7 @@ describe('test roverMars comportment in DOM', () => {
 
     test('create a 4 x 4 map', async () => {
         //ARRANGE
-        render(<App />)
+        render(<Component />)
         //ACT
         const myRoverImg = screen.getByAltText('roverMarsImg')
         await screen.findByRole('rover')
@@ -55,7 +55,7 @@ describe('test roverMars comportment in DOM', () => {
     
     test('implement the 4 x 4 map and the rover', async () => {
         //ARRANGE
-        render(<App />)
+        render(<Component />)
         //ACT
         const myMapImgs = screen.getAllByAltText('mapMarsImg');
         const myRoverImgsLength = screen.getAllByAltText('roverMarsImg').length;
@@ -71,7 +71,7 @@ describe('test roverMars comportment in DOM', () => {
     test('rotate the rover to East', async () => {
         //ARRANGE
         act(() => {
-            render(<App />)
+            render(<Component />)
         })
         //ACT
         await screen.findByRole('rover')
@@ -85,7 +85,7 @@ describe('test roverMars comportment in DOM', () => {
     test('move the rover to move forward', async () => {
         //ARRANGE
         act(() => {
-            render(<App />)
+            render(<Component />)
         })
         //ACT
         await screen.findByRole('rover')
@@ -98,7 +98,7 @@ describe('test roverMars comportment in DOM', () => {
 
     test('First snapshot Test', () => {
         const component = renderer.create(
-            <App />
+            <Component />
         );
 
         let tree = component.toJSON();

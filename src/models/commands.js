@@ -1,6 +1,6 @@
 export const Commands = {
-    Left : '<=',
-    Right : '=>',
-    Forward : 'F',
-    BackWard : 'B',
+    LEFT : 'LEFT',
+    RIGHT : 'RIGHT',
+    FORWARD : 'FORWARD',
+    BACKWARD : 'BACKWARD',
 }
